@@ -1,0 +1,55 @@
+﻿@model WebApplication1.Models.fixture
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ 
+    WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+    List<WebApplication1.Models.particpent> ls = db.particpents.ToList();
+}
+    
+        <form method="post" action="~/Home/newfixture" >
+            <h4 style="text-align:center;padding-top:30px;font-size:25px;">New Fixture</h4>
+            <hr /><br />
+            <div textal class="form-group" style="padding-left:30%;">
+                @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <input type="text" name="date" style="width:210px;" />
+            </div><br />
+
+            <div class="form-group" style="padding-left:30%;">
+                @Html.LabelFor(model => model.team1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <select name="team1" style="width:210px;">
+                        @foreach (var pt in ls)
+                        {
+                            <option>@pt.teamname</option>
+                        }
+                    </select>
+            </div><br />
+
+            <div class="form-group" style="padding-left:30%;">
+                @Html.LabelFor(model => model.team2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select name="team2" style="width:210px;">
+                    @foreach (var pt in ls)
+                    {
+                        <option>@pt.teamname</option>
+                    }
+                </select>
+            </div><br />
+
+            <div class="form-group" style="padding-left:30%;">
+                @Html.LabelFor(model => model.timing, htmlAttributes: new { @class = "control-label col-md-2" })
+                <input type="text" name="timing" style="width:210px;"/>
+            </div><br />
+
+            <div class="form-group" style="padding-left:26%;">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create New Fixture" class="btn btn-default" />
+                </div>
+            </div><br />
+        </form>
+
+    <br /><br />
+    <div style="padding-left:36%;padding-top:30px;font-size:25px;">
+        @Html.ActionLink("Back to Fixtures>>", "admfixtures")
+    </div>

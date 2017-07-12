@@ -1,0 +1,100 @@
+﻿@model WebApplication1.Models.volunteer
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Volunteers</title>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4 style="text-align:center;font-size:22px;padding-top:34px;">Volunteers</h4>
+        <hr />
+        @{
+            WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+
+            List<WebApplication1.Models.volunteer> ls = db.volunteers.ToList();
+            foreach (var nam in ls)
+            {
+                <br><br>
+                <table id="t01" align="center">
+
+                    <tr style="background-color: #eee;">
+                        <th>Volunteer Id</th>
+                        <td style="font:bold;font-size:22px;">@nam.id</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>First Name</th>
+                        <td>@nam.firstname</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Last Name</th>
+                        <td>@nam.lastname</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Address</th>
+                        <td>@nam.address</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>Phone No</th>
+                        <td>@nam.phoneno</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Email</th>
+                        <td>@nam.email</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>Time of Availability</th>
+                        <td>@nam.timeofwork</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Field of Interest</th>
+                        <td>@nam.fieldofinterest</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>Special Talent</th>
+                        <td>@nam.specialtalent</td>
+                    </tr>                   
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>Comments</th>
+                        <td>@nam.comment</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Status</th>
+                        <td>@nam.status</td>
+                    </tr>
+                </table>
+                <br><br>
+                <div style="text-align:center;font-size:18px;">
+                    @Html.ActionLink("Confirm Volunteer Registration>>  |", "confvolReg", new { id = @nam.id })
+                    @Html.ActionLink("Delete Volunteer>>  |", "Deletevol", new { id = @nam.id })
+                    @Html.ActionLink("Back to AdminPanel>>", "admin")
+                </div>
+            }
+        }
+    </div><br/><br />
+    <p style="text-align:center;font-size:22px;">
+        @Html.ActionLink("Confirm All Volunteer Requests>>", "confallvolreg")
+    </p>
+</body>
+</html>

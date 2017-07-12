@@ -1,0 +1,77 @@
+﻿@model WebApplication1.Models.admin
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Panel</title>
+</head>
+<body>
+    
+    <div style="text-align:center;font-size:28px;padding-top:112px;">WELCOME TO ADMINPANEL</div>
+    <div style="text-align:center;font-size:22px;padding-top:35px;">
+        @if(Session["admfirstname"]!=null)
+        {
+            <text>@Session["admfirstname"]@Session["admlastname"]</text>
+        }
+    </div>
+
+    <div class="w3ls-services-grids">
+        <div class="col-md-3 w3ls-services-left">
+            <div class="w3ls-services-left-top">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <h5>@Html.ActionLink("VIEW TEAMS","viewteams")</h5>
+                <p>Can manage registered teams approve or decline their team registration request for the tournment, Registration can be cancelled on any of the reasons team not eligible or team registration fee not recieved. </p>
+            </div>
+            <div class="w3ls-services-left-top w3ls-services-left-top1">
+                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                <h5>@Html.ActionLink("ADD FIXTURES", "admfixtures")</h5>
+                <p>Can add fixtures between the registered teams keeping in view the time,date,teams etc.So these fixtures can be seen by according teams to prepare themselves for upcoming matches!</p>
+            </div>
+        </div>
+        <div class="col-md-6 w3ls-services-middle">
+            <div class="w3ls-services-middle-img">
+                <img src="@Url.Content("~/Content/users/")images/bg.jpg" alt="" />
+            </div>
+            <div class="w3ls-services-middle-grids">
+                <div class="col-md-6 w3ls-services-middle-left">
+                    <div class="w3ls-services-left-top">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                        <h5>@Html.ActionLink("ADD RESULTS", "admresults")</h5>
+                        <p>Can add results to the existing fixtures.These results can be seen by any team,visitors,participents or tournment followers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 w3ls-services-middle-left">
+                    <div class="w3ls-services-left-top">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                        <h5>Sponsarship</h5>
+                        <p>Sponsorship Scheme, supported by the Society Funds aims to target assistance to members with disabilities or those experiencing financial hardship.</p>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="col-md-3 w3ls-services-left">
+            <div class="w3ls-services-left-top">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                <h5>@Html.ActionLink("ADD Volunteers", "vol")</h5>
+                <p>We are dedicated to ensure that you are equipped with the tools and support you need throughout your volunteer journey.</p>
+            </div>
+            <div class="w3ls-services-left-top w3ls-services-left-top1">
+                <i class="fa fa-anchor" aria-hidden="true"></i>
+                <h5>@Html.ActionLink("ANNOUNCEMENTS", "announcment")</h5>
+                <p>Can make annoucments for teams,volunteers or other tournment participents.These announcements can only be viewed by the tournment refercenced people.Quick announcments can be made like match cancellatin and rescheduling of match.</p>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+
+    <div></div>
+</body>
+</html>

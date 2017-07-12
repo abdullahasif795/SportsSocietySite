@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+</head>
+
+
+<body>
+
+    <div style="text-align:center; color:dodgerblue; font-size:xx-large; padding-top:38px;">
+        @if(Session["logfusername"] != null)
+        {
+            <text>
+                Welcome    @Session["logfusername"]@Session["loglusername"]
+            </text>
+        }
+    </div>
+
+    <!-- banner -->
+    
+            <!-- header -->
+            <!-- //header -->
+    <!-- //banner -->
+    <!-- modal -->
+
+   <!-- //modal -->
+    <!-- about -->
+
+    <div class="about" id="about">
+        <div class="container">
+            <div class="w3-agileits-about-grids">
+                <div class="col-md-6 agile-about-left">
+                    <h2>About Us</h2>
+                    <h5>The main objective of this society is to promote sports activities amongst the students of University.</h5>
+                    <p>The society organizes sports activities on regular basis at the campus and outside the campus.
+                    All of the activities under the university are organized and executed by the sports society.
+                    Students to actively participate in different sports. 
+                    Student may choose from a variety of activities such as  cricket,badminton, basketball, hockey etc.
+                    <span>Phasellus viverra nec augue at iaculis. 
+                    Nullam scelerisque tincidunt sapien vitae sodales. Sed tristique ut nulla a ultricies. 
+                        Aliquam sit amet sodales elit, et pellentesque lorem. Praesent quis nibh id arcu porta
+                         lobortis.
+                    </span> 
+                    Morbi rutrum ut risus sed hendrerit. Integer laoreet odio nec nisi 
+                    varius, at scelerisque nisi rhoncus.liquam libero enim, fermentum sed ligula a, finibus 
+                    faucibus erat. Sed ipsum orci, rutrum eget diam ac, luctus commodo quam.
+                    </p>
+                </div>
+                <div class="col-md-6 agile-about-right">
+                    <div class="agile-about-right-img1">
+                        <img src="@Url.Content("~/Content/users/")images/a1.jpg" alt="" />
+                    </div>
+                    <div class="agile-about-right-img2">
+                        <img src="@Url.Content("~/Content/users/")images/a2.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //about -->
+    <!-- services -->
+    <div class="services" id="services">
+        <div class="container">
+            <div class="w3-agile-heading">
+                <h3>Our Services</h3>
+            </div>
+            <div class="w3ls-services-grids">
+                <div class="col-md-3 w3ls-services-left">
+                    <div class="w3ls-services-left-top">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <h5>Games Events</h5>
+                        <p>With plenty of activities available, there is an event for you! New pricing format for 2017! We are keen to provide you better than last tournment. </p>
+                    </div>
+                    <div class="w3ls-services-left-top w3ls-services-left-top1">
+                        <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        <h5>Entertainment at the Games</h5>
+                        <p>Entertainment will be provided on the Monday and Tuesday night. Monday night is the 'main event' with band,photo booth and much more planned for your entertainment!</p>
+                    </div>
+                </div>
+                <div class="col-md-6 w3ls-services-middle">
+                    <div class="w3ls-services-middle-img">
+                        <img src="@Url.Content("~/Content/users/")images/bg.jpg" alt="" />
+                    </div>
+                    <div class="w3ls-services-middle-grids">
+                        <div class="col-md-6 w3ls-services-middle-left">
+                            <div class="w3ls-services-left-top">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                                <h5>Physical Activity Fund</h5>
+                                <p>The Physical Activity Fund is a funding opportunity for elite players with friends, family and work colleagues on a local level</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 w3ls-services-middle-left">
+                            <div class="w3ls-services-left-top">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <h5>Sponsarship</h5>
+                                <p>Sponsorship Scheme, supported by the Society Funds aims to target assistance to members with disabilities or those experiencing financial hardship.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="col-md-3 w3ls-services-left">
+                    <div class="w3ls-services-left-top">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <h5>Supporting Volunteers</h5>
+                        <p>We are dedicated to ensure that you are equipped with the tools and support you need throughout your volunteer journy.</p>
+                    </div>
+                    <div class="w3ls-services-left-top w3ls-services-left-top1">
+                        <i class="fa fa-anchor" aria-hidden="true"></i>
+                        <h5>Travel Policy</h5>
+                        <p>The aim of Games Travel and Accommodation policy to assist with competitor’s costs to all society members not funded from any other body or organization when attending National, Open and Regional events </p>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //services -->
+    
+    <!-- //team -->
+    <!-- contact -->
+    <!-- //contact -->
+    <!-- map -->
+    <!-- map -->
+    <!-- contact-form -->
+    <!-- //contact-form -->
+    <!-- newsletter -->
+    <!-- //newsletter -->
+    <!-- footer -->
+    <!-- //footer -->
+</body>
+</html>

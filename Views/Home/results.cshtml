@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Results</title>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4 style="text-align:center;padding-top:30px;font-size:25px;">Current Results</h4><hr />
+        <br>
+        @{
+            WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+
+            List<WebApplication1.Models.result> ls = db.results.ToList();
+            foreach (var nam in ls)
+            {
+                <br><br>
+                <table id="t01" align="center">
+
+                    <tr style="background-color: #eee;">
+                        <th>Match No</th>
+                        <td style="font:bold;font-size:22px;">@nam.matchno</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>date</th>
+                        <td>@nam.date</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>Teams</th>
+                        <td>@nam.teams</td>
+                    </tr>
+
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Winner Team</th>
+                        <td>@nam.winnerteam</td>
+                    </tr>
+
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">
+                        <th>Timing</th>
+                        <td>@nam.matchtiming</td>
+                    </tr>
+                </table>
+                <br><br>
+               
+            }
+        }
+
+
+    </div>
+</body>
+</html>

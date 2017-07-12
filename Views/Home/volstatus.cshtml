@@ -1,0 +1,62 @@
+﻿@model WebApplication1.Models.particpent
+
+@{
+    ViewBag.Title = "VolunteerStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    string usremail = Convert.ToString(Session["loguseremail"]);
+    WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+    List<WebApplication1.Models.volunteer> ls = db.volunteers.Where(s => s.email == usremail).ToList();
+}
+
+<html>
+<head>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <br /><h2 style="text-align:center;">Volunteer Registration Status</h2><hr /><br /><br /><br />
+    @foreach (var row in ls)
+    {
+        <table id="t01" align="center">
+
+            <tr style="background-color: #eee;font:bold;font-size:20px;">
+                <th>Volunteer Name</th>
+                <td style="font:bold;font-size:22px;">@row.firstname@row.lastname</td>
+            </tr>
+            <tr style="font:bold;font-size:20px;">
+                <th>Contact No</th>
+                <td>@row.phoneno</td>
+            </tr>
+            <tr style="background-color: #eee;font:bold;font-size:20px;">
+                <th>Email Address</th>
+                <td>@row.email</td>
+            </tr>
+        </table><br /><br />
+                <p style="padding-left:35%;font-size:25px;">
+                    Volunteer Registration Status :
+                    @if (row.status == null)
+                    {<h2 style="padding-left:40%;">Pending...</h2>}
+                    else
+                    { <h2 style="padding-left:40%;">Approved</h2>}
+                </p>
+    }
+    <br /><br /><br />
+</body>
+</html>
+

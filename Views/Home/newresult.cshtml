@@ -1,0 +1,67 @@
+﻿@model WebApplication1.Models.result
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+    List<WebApplication1.Models.fixture> ls = db.fixtures.ToList();
+}
+
+<form method="post" action="~/Home/newresult">
+    <h4 style="text-align:center;padding-top:30px;font-size:25px;">New Result</h4>
+    <hr /><br />
+    <div textal class="form-group" style="padding-left:30%;">
+        @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <select name="date" style="width:220px;">
+            @foreach (var pt in ls)
+            {
+                <option>@pt.date</option>
+            }
+        </select>
+    </div><br />
+
+    <div class="form-group" style="padding-left:30%;">
+        @Html.LabelFor(model => model.teams, htmlAttributes: new { @class = "control-label col-md-2" })
+        <select name="teams" style="width:220px;">
+            @foreach (var pt in ls)
+            {
+                <option>@pt.team1 VS @pt.team2</option>
+            }
+        </select>
+    </div><br />
+
+    <div class="form-group" style="padding-left:30%;">
+        @Html.LabelFor(model => model.winnerteam, htmlAttributes: new { @class = "control-label col-md-2" })
+        <select name="winnerteam" style="width:220px;">
+            @foreach (var pt in ls)
+            {
+                <option>@pt.team1</option>
+                <option>@pt.team2</option>
+            }
+        </select>
+    </div><br />
+
+    <div class="form-group" style="padding-left:30%;">
+        @Html.LabelFor(model => model.matchtiming, htmlAttributes: new { @class = "control-label col-md-2" })
+        <select name="matchtiming" style="width:220px;">
+            @foreach (var pt in ls)
+            {
+                <option>@pt.timing</option>
+            }
+        </select>
+    </div><br />
+
+    <div style="padding-left:38%;">
+        <input  type="submit" value="Create New Result" class="btn btn-default" />
+    </div>
+        <br />
+</form>
+
+
+
+
+<div style="text-align:center;padding-top:22px;font-size:25px;">
+    @Html.ActionLink("Back to Results>>", "admresults")
+</div>

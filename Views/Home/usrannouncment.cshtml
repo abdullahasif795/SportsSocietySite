@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Models.mydbEntities5
+
+@{
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Announcments</title>
+    <style>
+        table, td, th {
+            border: 2px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 76%;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4 style="text-align:center;padding-top:30px;font-size:25px;">Announcments</h4><hr />
+        @{
+            WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+            List<WebApplication1.Models.announcement> ls = db.announcements.ToList();
+        }
+            <br><br>
+            <table id="t01" align="center">
+
+                <tr style="background-color: #eee;">
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Announcment</th>
+                </tr>
+                @foreach (var nam in ls)
+                {
+
+                <tr style="font:bold;background-color: #e3ebeb;font-size:20px;">
+
+                    <td height="70px" width="52px">@nam.time</td>
+                    <td height="70px" width="52px">@nam.date</td>
+                    <td height="70px" width="222px">@nam.annoucement</td>
+                </tr>
+                }
+            </table>                 
+            <br/><br/><br />        
+    </div>
+</body>
+</html>

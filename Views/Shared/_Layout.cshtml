@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="T club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- bootstrap-css -->
+    <link href="@Url.Content("~/Content/users/css/bootstrap.css")" rel="stylesheet" type="text/css" media="all" />
+    <!--// bootstrap-css -->
+    <!-- css -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/users/css/style.css")" type="text/css" media="all" />
+    <!--// css -->
+    <!-- gallery -->
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/users/css/cm-overlay.css")" />
+    <!-- //gallery -->
+    <!-- font-awesome icons -->
+    <link href="@Url.Content("~/Content/users/css/font-awesome.css")" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- font -->
+    <link href="//fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,100i,300,300i,400,400i,500,500i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <!-- //font -->
+    <script src="@Url.Content("~/Content/users/js/jquery-1.11.1.min.js")"></script>
+    <script src="@Url.Content("~/Content/users/js/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Content/users/js/SmoothScroll.min.js")"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+
+</head>
+
+
+<body>  
+    <script>
+                function loadDoc() {
+                    var xhttp;
+                    if (window.XMLHttpRequest)
+                    {
+                        xhttp = new XMLHttpRequest();
+                    }
+                    else
+                    {
+                        // code for IE6, IE5
+                        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+                    xhttp.onreadystatechange = function ()
+                    {
+                            if (xhttp.readyState == 4 && xhttp.status == 200)
+                            {
+                                document.getElementById("demo").innerHTML = xhttp.responseText;
+                            }
+
+                    };
+                    xhttp.open("GET", "~/Views/Home/fixtures.cshtml", true);
+                    xhttp.send();
+                }
+    </script>
+    <!-- banner -->
+    <div class="jarallax banner">
+        <div class="wthree-different-dot">
+            <!-- header -->
+            <div class="header">
+                <div class="container">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="w3layouts-logo">
+                                <h1><a href="#Home"><span>Sports</span>Society</a></h1>
+                            </div>
+                        </div>
+
+                        
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <ul class="menu">
+                                <li class="active">@Html.ActionLink("Home", "Index")</li>
+                                <li>
+                                    <a href="#">Tournment</a>
+                                    <ul class="submenu">
+                                     
+                                        <li>
+                                            @if (Session["logfusername"] == null)
+                                            {
+                                                @Html.ActionLink("Make Account", "login")
+                                            }
+                                        </li>
+                                        <li>
+                                            <b>Apply For:</b>
+                                            <ul>
+                                                <li>
+                                                    @if (Session["logfusername"] == null)
+                                                    {
+                                                        @Html.ActionLink("Cricket", "login")
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.ActionLink("Cricket", "regform")
+                                                    }
+                                                 </li>
+                                                <li>
+                                                    @if (Session["logfusername"] == null)
+                                                    {
+                                                        @Html.ActionLink("Football", "login")
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.ActionLink("Football", "regform")
+                                                    }
+                                                </li>
+                                                <li>
+                                                    @if (Session["logfusername"] == null)
+                                                    {
+                                                        @Html.ActionLink("Hockey", "login")
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.ActionLink("Hockey", "regform")
+                                                    }
+                                                </li>
+                                                <li>
+                                                    @if (Session["logfusername"] == null)
+                                                    {
+                                                        @Html.ActionLink("Basketball", "login")
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.ActionLink("Basketball", "regform")
+                                                    }
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>@Html.ActionLink("Fixtures", "fixtures")</li>
+                                        <li>@Html.ActionLink("Results", "results")</li>
+                                        <li>
+                                            @if (Session["logfusername"] != null)
+                                            {
+                                                @Html.ActionLink("Announcments", "usrannouncment")
+                                            }
+                                        </li>
+                                        @if (Session["logfusername"] != null)
+                                        {
+                                                <li>@Html.ActionLink("Team Status", "teamstatus")</li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#services" class="scroll">Services</a>
+                                    <ul class="submenu">
+                                        <li>@Html.ActionLink("Game Events", "gamevents")</li>
+                                        <li>
+                                        @if (Session["logfusername"] != null)
+                                        {
+                                            @Html.ActionLink("Volunteer Registration", "volreg")
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink("Volunteer Registration", "login")
+                                        }
+                                        </li>
+                                        <li>
+                                            @if (Session["logfusername"] != null)
+                                            {
+                                                @Html.ActionLink("Volunteer Status", "volstatus")
+                                            }
+                                        </li>
+                                        <li>
+                                            @if (Session["logfusername"] != null)
+                                            {
+                                                 @Html.ActionLink("Sponsarship", "Index")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink("Sponsarship", "login")
+                                            }
+                                        </li>
+                                        <li>
+                                            @if (Session["logfusername"] != null)
+                                            {
+                                                @Html.ActionLink("Travel Policy", "Index")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink("Travel Policy", "login")
+                                            }
+                                        </li>
+                                        <li>
+                                            @if (Session["logfusername"] != null)
+                                            {
+                                                @Html.ActionLink("Physical Activity Fund", "Index")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink("Physical Activity Fund", "login")
+                                            }
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#gallery" class="scroll">Gallery</a></li>
+                                <li><a href="#team" class="scroll">Our Team</a></li>
+                                <li><a href="#about" class="scroll">About Us</a></li>
+                                <li><a href="#mail" class="scroll">ContactUs</a></li>
+                                <li>
+                                    @if (Session["logfusername"] == null)
+                                    {
+                                        <div style="color:red;">@Html.ActionLink("Login", "login")</div>
+                                    }
+                                    else
+                                    {
+                                        <div style="color:red;">@Html.ActionLink("Logout", "logout")</div>
+                                    }
+                                 </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+            </div>
+            <!-- //header -->
+            <div class="banner-top">
+                <div class="container">
+                    <div class="slider">
+                        <div class="callbacks_container">
+                            <ul class="rslides callbacks callbacks1" id="slider4">
+                                <li>
+                                    <div class="banner_text">
+                                        <div class="agileits-star">
+                                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            <span><i class="fa fa-star-half-o" aria-hidden="true"></i></span>
+                                        </div>
+                                        <h3>Life is a Sport </h3>
+                                        <p>Make it better</p>
+                                        <div class="w3-button">
+                                            <a href="#" data-toggle="modal" data-target="#myModal">Read More</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="banner_text">
+                                        <div class="agileits-star">
+                                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            <span><i class="fa fa-star-half-o" aria-hidden="true"></i></span>
+                                        </div>
+                                        <h3>You are your </h3>
+                                        <p>Only Limit</p>
+                                        <div class="w3-button">
+                                            <a href="#" data-toggle="modal" data-target="#myModal">Read More</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <script src="@Url.Content("~/Content/users/")js/responsiveslides.min.js"></script>
+                        <script>
+                            // You can also use "$(window).load(function() {"
+                            $(function () {
+                                // Slideshow 4
+                                $("#slider4").responsiveSlides({
+                                    auto: true,
+                                    pager: true,
+                                    nav: true,
+                                    speed: 500,
+                                    namespace: "callbacks",
+                                    before: function () {
+                                        $('.events').append("<li>before event fired.</li>");
+                                    },
+                                    after: function () {
+                                        $('.events').append("<li>after event fired.</li>");
+                                    }
+                                });
+
+                            });
+                        </script>
+                        <!--banner Slider starts Here-->
+                    </div>
+                </div>
+            </div>
+            <div class="agileinfo-address">
+                <div class="container">
+                    <div class="agileinfo-address-grid">
+                        <ul>
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> 67 Fourth Avenue Seattle Wa 98104, Los Angeles.</li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i> +92 384 164 8901</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- modal -->
+    <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Sports Society</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="agileits-w3layouts-info">
+                        <img src="@Url.Content("~/Content/users/")images/1.jpg" alt="" />
+                        <p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //modal -->
+    <!-- about -->
+    <!-- //about -->
+    @RenderBody()
+    <!-- services -->
+    <p id="demo"></p>
+    <!-- //services -->
+    <!-- gallery -->
+    <div class="gallery" id="gallery">
+        <div class="container">
+            <div class="w3-agile-heading">
+                <h3>Our Gallery</h3>
+            </div>
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">All</a></li>
+                    <li role="presentation"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">Category 1</a></li>
+                    <li role="presentation"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">Category 2</a></li>
+                    <li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">Category 3</a></li>
+                    <li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">Category 4</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/11.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/11.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/9.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/9.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/7.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/7.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/5.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/5.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/10.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/3.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/images78.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/images78.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/index78.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/index78.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/912.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/912.jpg" alt=" " class="img-responsive" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="learning" aria-labelledby="learning-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/images78.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/images78.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/index78.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/index78.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/4.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/4.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/912.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/912.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="playing" aria-labelledby="playing-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/3.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/3.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/5.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/5.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/15.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/15.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/7.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/7.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="painting" aria-labelledby="painting-tab">
+                        <div class="w3_tab_img">
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/8.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/8.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/9.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/9.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/13.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/13.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/14.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/14.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="school" aria-labelledby="school-tab">
+                        <div class="w3_tab_img">
+
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/10.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/10.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/11.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/11.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 w3_tab_img_left">
+                                <div class="demo">
+                                    <a class="cm-overlay" href="@Url.Content("~/Content/users/")images/12.jpg">
+                                        <figure class="imghvr-shutter-in-out-diag-2">
+                                            <img src="@Url.Content("~/Content/users/")images/12.jpg" alt=" " class="img-responsive">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="@Url.Content("~/Content/users/")js/jquery.tools.min.js"></script>
+            <script src="@Url.Content("~/Content/users/")js/jquery.mobile.custom.min.js"></script>
+            <script src="@Url.Content("~/Content/users/")js/jquery.cm-overlay.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.cm-overlay').cmOverlay();
+                });
+            </script>
+        </div>
+    </div>
+    <!-- //gallery -->
+    <!-- team -->
+    <div class="jarallax team" id="team">
+        <div class="team-dot">
+            <div class="container">
+                <div class="w3-agile-heading team-heading">
+                    <h3>Our Team</h3>
+                </div>
+                <div class="agileits-team-grids">
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="@Url.Content("~/Content/users/")images/t5.jpg" alt="">
+                            <div class="team-caption">
+                                <h4>Peter Parker</h4>
+                                <p>President</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="@Url.Content("~/Content/users/")images/t6.jpg" alt="">
+                            <div class="team-caption">
+                                <h4>Johan Botha</h4>
+                                <p>Vice President</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="@Url.Content("~/Content/users/")images/t7.png" alt="">
+                            <div class="team-caption">
+                                <h4>Justo Congue</h4>
+                                <p>Event Manager</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="@Url.Content("~/Content/users/")images/t8.jpg" alt="">
+                            <div class="team-caption" margin-top"70%">
+                                <h4>Steven Wilson</h4>
+                                <p>Recruitment Assistant</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //team -->
+    <!-- contact -->
+    <div class="contact" id="mail">
+        <div class="container">
+            <div class="w3-agile-heading">
+                <h3>Contact</h3>
+            </div>
+            <div class="w3layouts-contact-grids">
+                <div class="col-sm-3 w3layouts-contact-grid">
+                    <i class="fa fa-map" aria-hidden="true"></i>
+                    <h5>Address</h5>
+                    <p>67 Fourth Avenue, Seattle Wa 98104, Los Angeles</p>
+                </div>
+                <div class="col-sm-3 w3layouts-contact-grid">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <h5>Phone/Fax</h5>
+                    <p>+092 328 716 7890</p>
+                    <p>+092 489 587 8901</p>
+                </div>
+                <div class="col-sm-3 w3layouts-contact-grid">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <h5>Email</h5>
+                    <p><a href="mailto:info@example.com"> sportsworld@gmail.com</a></p>
+                </div>
+                <div class="col-sm-3 w3layouts-contact-grid">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    <h5>Social</h5>
+                    <p>Touch With Us</p>
+                    <div class="agileinfo-social-grids">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact-form -->
+    <div class="w3-agile-heading">
+        <h3>Mail US</h3>
+    </div>
+    <div class="contact-info">
+        <div class="container">
+            <div class="contact-form">
+                <form action="~/Home/mailus" method="post">
+                    <input type="text" name="name" placeholder="Name" required="">
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="text" name="phone" placeholder="Telephone" required="">
+                    <textarea name="message" placeholder="Message" required=""></textarea>
+                    <input type="submit" value="SUBMIT">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- //contact-form -->
+    <!-- //contact -->
+    <!-- map -->
+    <div class="map">
+        <iframe src="https://developers.google.com/maps/documentation/javascript/examples/full/style-array" allowfullscreen=""></iframe>
+    </div><br /><br />
+    <!-- map -->
+    <!-- newsletter -->
+    <div class="newsletter">
+        <div class="container">
+            <div class="col-sm-7 newsletter-left">
+                <h5>Subscribe to our email newsletter to receive updates</h5>
+            </div>
+            <div class="col-sm-5 newsletter-right">
+                <form action="#" method="post">
+                    <input type="text" placeholder="Subscribe" name="Subscribe" required="">
+                    <button class="btn1"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //newsletter -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>© 2017 Sports Society. All rights reserved | Design by <a href="http://w3layouts.com">geekfirm</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <script type="text/javascript" src="@Url.Content("~/Content/users/")js/move-top.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/users/")js/easing.js"></script>
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <script src="@Url.Content("~/Content/users/")js/jarallax.js"></script>
+    <script type="text/javascript"></script>
+
+</body>
+</html>

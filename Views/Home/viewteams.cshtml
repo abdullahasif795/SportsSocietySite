@@ -1,0 +1,140 @@
+﻿@model WebApplication1.Models.particpent
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cricket Teams</title>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4 style="text-align:center;padding-top:30px;font-size:25px;">Registered Cricket Teams</h4><hr />
+        @{
+            WebApplication1.Models.mydbEntities5 db = new WebApplication1.Models.mydbEntities5();
+
+            List<WebApplication1.Models.particpent> ls = db.particpents.ToList();
+            foreach (var nam in ls)
+            {
+                <br><br>
+                <table id="t01" align="center">
+                   
+                    <tr style="background-color: #eee;">
+                        <th>Team Id</th>
+                        <td style="font:bold;font-size:22px;">@nam.teamid</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Game</th>
+                        <td>@nam.selectgame</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> 
+                        <th>TeamName</th>
+                        <td>@nam.teamname</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> 
+                        <th>Coach Name</th>
+                        <td>@nam.coachname</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;">>
+                        <th>Captain Name</th>
+                        <td>@nam.captainname</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Player 1</th>
+                        <td>@nam.player1</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Player 2</th>
+                        <td>@nam.player2</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Player 3</th>
+                        <td>@nam.player3</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Player 4</th>
+                        <td>@nam.player4</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Player 5</th>
+                        <td>@nam.player5</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Player 6</th>
+                        <td>@nam.player6</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Player 7</th>
+                        <td>@nam.player7</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Phone No</th>
+                        <td>@nam.phoneno</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Email</th>
+                        <td>@nam.email</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>First Name</th>
+                        <td>@nam.firstname</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Last Name</th>
+                        <td>@nam.lastname</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Credit Cardno</th>
+                        <td>@nam.creditcardno</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Security Code</th>
+                        <td>@nam.securitycode</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Expiry Month</th>
+                        <td>@nam.expmonth</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Address</th>
+                        <td>@nam.address</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>City</th>
+                        <td>@nam.city</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>State</th>
+                        <td>@nam.state</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>ZipCode</th>
+                        <td>@nam.zipcode</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;"> <th>Country</th>
+                        <td>@nam.country</td>
+                    </tr>
+                    <tr style="background-color: #eee;font:bold;font-size:20px;"> <th>Fee</th>
+                        <td>@nam.fee</td>
+                    </tr>
+                    <tr style="font:bold;font-size:20px;">
+                        <th>Status</th>
+                        <td>@nam.status</td>
+                    </tr>
+                </table>
+                <br><br>
+                <div style="text-align:center;font-size:18px;">
+                    @Html.ActionLink("Confirm Registration>>  |", "confteamReg", new { id = @nam.teamid })
+                    @Html.ActionLink("Edit Team Details>>  |", "Edit", new { id = @nam.teamid })
+                    @Html.ActionLink("Delete Team>>  |", "Delete", new { id = @nam.teamid })               
+                    @Html.ActionLink("Back to AdminPanel>>", "admin")
+                 </div>             
+            }
+        }
+     </div>
+    <br /><p style="font-size:18px;text-align:center;"> 
+         @Html.ActionLink("Confirm Registration All Teams>>  |", "confallteamReg")
+    </p>
+</body>
+</html>
